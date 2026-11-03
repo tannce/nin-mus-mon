@@ -1,0 +1,21 @@
+#[[kv_namespaces]]
+#binding = "STATE"
+#id = "33e08b9ee8c64e03b36fee131f7e5f4c"
+
+name = "nin-mus-mon"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+[triggers]
+crons = ["* * * * *"]          # ทุกนาที
+
+[[durable_objects.bindings]]
+name = "WATCHER"
+class_name = "Watcher"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Watcher"]
+
+[observability]
+enabled = true                 # ดู log ย้อนหลังได้ใน dashboard
